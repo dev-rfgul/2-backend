@@ -4,6 +4,7 @@ const express = require('express')
 const app = express()
 // const port = 3000
 
+
 const githubData = {
     "login": "dev-rfgul",
     "id": 146063235,
@@ -40,8 +41,42 @@ const githubData = {
 }
 
 app.get('/', (req, res) => {
-    res.send('Hello World! I am fahad')
+    res.send(`
+        <html>
+            <head>
+                <title>Home</title>
+                <style>
+                    button {
+                        margin: 10px;
+                        padding: 10px 20px;
+                        background-color: #4CAF50;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+                    button:hover {
+                        background-color: #45a049;
+                    }
+                    .container {
+                        text-align: center;
+                        margin-top: 50px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>Hello World! I am Fahad</h1>
+                    <a href="/about"><button>About</button></a>
+                    <a href="/login"><button>Login</button></a>
+                    <a href="/contact"><button>Contact</button></a>
+                    <a href="/github"><button>GitHub</button></a>
+                </div>
+            </body>
+        </html>
+    `);
 });
+
 app.get('/about', (req, res) => {
     res.send('Hello World! I am fahad currently on the about page')
 });
